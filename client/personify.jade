@@ -11,6 +11,7 @@ head
     script(src='js/impress.js')
     style
       .btn-custom {
+        cursor: pointer;
         padding: 15px;
         font-size: 26px;
         background-color: hsl(360, 73%, 30%) !important;
@@ -44,15 +45,21 @@ head
     
 
     script
-      var api = impress();
-      api.init();
-
       $(document).ready(function() {
+  
+        var api = impress();
+        api.init();
+
+        /*
         $(".service").click(function(serviceButtonClick) {
-          console.log('service', serviceButtonClick.target.id);
-          $("#create").addClass('slide'); //css('visibility', "hidden");
+          //console.log(api);
+          //console.log('service', serviceButtonClick.target.id);
+          api.goto($("#create"));
         });
+        */
+
       });
+
 
     // fav and touch icons 
     link(rel='shortcut icon', href='../assets/ico/favicon.ico')
@@ -62,38 +69,58 @@ head
     link(rel='apple-touch-icon-precomposed', href='../assets/ico/apple-touch-icon-57-precomposed.png')
 
   body
+
+    // nav: breadcrumbs 
+    #nav(style="font-size: 24px;")
+      a(href='#') PersonifyDE > 
+      span(style="color:red;")
+        a(href='#') Personify
     
     #impress
 
-      // nav: breadcrumbs 
-      #nav(style="font-size: 24px;")
-        a(href='#') PersonifyDE > 
-        span(style="color:red;")
-          a(href='#') Personify
+      // Personify Agent
 
       #Personify.step.slide(data-x="0", data-y="0", data-scale="3")
         h1 Personify
         span(style="height:20px;")
         span(style="font-size:20px;") services:
         br
-        a(href="#")
-          button.btn-custom
+
+        // services:
+
+        // create
+        a(href="#create")
+          button#createButton.btn-custom.service
             b create:
             |  create a new Personify module 
+
+        // test
+        a(href="#test")
+          button#testButton.btn-custom.service
+            b test:
+            |  run all specs for an Agent 
+
+      // create
+      
+      #create.step.slide(data-x="-800", data-y="1400", data-scale="1")
+        | create
+
+      #test.step.slide(data-x="100", data-y="1400", data-scale="1")
+        | test
 
     // javascript
     // Placed at the end of the document so the pages load faster 
 
-    script(src='../assets/js/jquery.js')
-    script(src='../assets/js/bootstrap-transition.js')
-    script(src='../assets/js/bootstrap-alert.js')
-    script(src='../assets/js/bootstrap-modal.js')
-    script(src='../assets/js/bootstrap-dropdown.js')
-    script(src='../assets/js/bootstrap-scrollspy.js')
-    script(src='../assets/js/bootstrap-tab.js')
-    script(src='../assets/js/bootstrap-tooltip.js')
-    script(src='../assets/js/bootstrap-popover.js')
-    script(src='../assets/js/bootstrap-button.js')
-    script(src='../assets/js/bootstrap-collapse.js')
-    script(src='../assets/js/bootstrap-carousel.js')
-    script(src='../assets/js/bootstrap-typeahead.js')
+      script(src='../assets/js/jquery.js')
+      script(src='../assets/js/bootstrap-transition.js')
+      script(src='../assets/js/bootstrap-alert.js')
+      script(src='../assets/js/bootstrap-modal.js')
+      script(src='../assets/js/bootstrap-dropdown.js')
+      script(src='../assets/js/bootstrap-scrollspy.js')
+      script(src='../assets/js/bootstrap-tab.js')
+      script(src='../assets/js/bootstrap-tooltip.js')
+      script(src='../assets/js/bootstrap-popover.js')
+      script(src='../assets/js/bootstrap-button.js')
+      script(src='../assets/js/bootstrap-collapse.js')
+      script(src='../assets/js/bootstrap-carousel.js')
+      script(src='../assets/js/bootstrap-typeahead.js')

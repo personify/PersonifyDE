@@ -671,12 +671,21 @@
     
     // wait for impress.js to be initialized
     document.addEventListener("impress:init", function (event) {
+
         // Getting API from event data.
         // So you don't event need to know what is the id of the root element
         // or anything. `impress:init` event data gives you everything you 
         // need to control the presentation that was just initialized.
         var api = event.detail.api;
-        
+            
+        // SERVICES
+        /*
+        $(".service").click(function(serviceButtonClick) {
+          //console.log(api);
+          console.log('service', serviceButtonClick.target.id);
+          #api.goto($("#create"));
+        });*/
+
         // KEYBOARD NAVIGATION HANDLERS
         
         // Prevent default keydown action when one of supported key is pressed.
@@ -726,6 +735,7 @@
         document.addEventListener("click", function ( event ) {
             // event delegation with "bubbling"
             // check if event target (or any of its parents is a link)
+            //console.log("impress.js: click", event);
             var target = event.target;
             while ( (target.tagName !== "A") &&
                     (target !== document.documentElement) ) {
@@ -740,13 +750,15 @@
                     target = document.getElementById( href.slice(1) );
                 }
             }
-            
+
             if ( api.goto(target) ) {
                 event.stopImmediatePropagation();
                 event.preventDefault();
             }
-        }, false);
         
+
+        }, false);
+
         // delegated handler for clicking on step elements
         document.addEventListener("click", function ( event ) {
             var target = event.target;
