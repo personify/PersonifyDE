@@ -33,6 +33,10 @@ head
         border-radius: 6px;
         border-width: 1px;
       }
+      .failingBorder
+      {
+        border: 6px solid #841414;
+      }
     link(href='css/bootstrap.css', rel='stylesheet')
     link(href='css/bootstrap-responsive.css', rel='stylesheet')
     link(href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic", rel="stylesheet")
@@ -50,23 +54,8 @@ head
         var api = impress();
         api.init();
 
-        /*
-        $(".service").click(function(serviceButtonClick) {
-          //console.log(api);
-          //console.log('service', serviceButtonClick.target.id);
-          api.goto($("#create"));
-        });
-        */
-
       });
 
-
-    // fav and touch icons 
-    link(rel='shortcut icon', href='../assets/ico/favicon.ico')
-    link(rel='apple-touch-icon-precomposed', sizes='144x144', href='../assets/ico/apple-touch-icon-144-precomposed.png')
-    link(rel='apple-touch-icon-precomposed', sizes='114x114', href='../assets/ico/apple-touch-icon-114-precomposed.png')
-    link(rel='apple-touch-icon-precomposed', sizes='72x72', href='../assets/ico/apple-touch-icon-72-precomposed.png')
-    link(rel='apple-touch-icon-precomposed', href='../assets/ico/apple-touch-icon-57-precomposed.png')
 
   body
 
@@ -74,25 +63,36 @@ head
     #nav(style="font-size: 24px;")
       a(href='#') PersonifyDE > 
       span(style="color:red;")
-        a(href='#') Personify
+        a(href='#Personify') Personify >        
     
     #impress
 
       // Personify Agent
 
-      #Personify.step.slide(data-x="0", data-y="0", data-scale="3")
+      #Personify.step.slide(style="border: 15px solid #dc2222;", data-x="0", data-y="0", data-scale="3")
         h1 Personify
-        span(style="height:20px;")
-        span(style="font-size:20px;") services:
+        span(style="font-size:20px;") help build Personify projects
         br
+        // models:
+        b
+          span(style="font-size:20px;") knows about:
+        br
+        span(style="font-size:16px;") 
+          b Agent: 
+          | an autonmous software Agent
+        br 
 
         // services:
-
+        b 
+          span(style="font-size:20px;") can:
+        br
         // create
         a(href="#create")
           button#createButton.btn-custom.service
             b create:
-            |  create a new Personify module 
+            |  create a new Agent
+
+        br 
 
         // test
         a(href="#test")
@@ -102,25 +102,11 @@ head
 
       // create
       
-      #create.step.slide(data-x="-800", data-y="1400", data-scale="1")
-        | create
+      #create.step.slide(style="border: 15px solid #dc2222;", data-x="-800", data-y="1400", data-scale="1")
+        h1 create
+        br
+        textarea 
+          | whoa
 
       #test.step.slide(data-x="100", data-y="1400", data-scale="1")
         | test
-
-    // javascript
-    // Placed at the end of the document so the pages load faster 
-
-      script(src='../assets/js/jquery.js')
-      script(src='../assets/js/bootstrap-transition.js')
-      script(src='../assets/js/bootstrap-alert.js')
-      script(src='../assets/js/bootstrap-modal.js')
-      script(src='../assets/js/bootstrap-dropdown.js')
-      script(src='../assets/js/bootstrap-scrollspy.js')
-      script(src='../assets/js/bootstrap-tab.js')
-      script(src='../assets/js/bootstrap-tooltip.js')
-      script(src='../assets/js/bootstrap-popover.js')
-      script(src='../assets/js/bootstrap-button.js')
-      script(src='../assets/js/bootstrap-collapse.js')
-      script(src='../assets/js/bootstrap-carousel.js')
-      script(src='../assets/js/bootstrap-typeahead.js')
